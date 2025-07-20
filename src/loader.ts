@@ -15,7 +15,14 @@ export async function pokemonListLoader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const page = Number(url.searchParams.get("page") ?? "1");
   const limit = Number(url.searchParams.get("limit") ?? "20");
-  const list = (await fetchPokemonList(page, limit)) as PokemonListResponse;
+  const name = url.searchParams.get("name") ?? "";
+  const max = Number(url.searchParams.get("max") ?? "");
+  const list = (await fetchPokemonList(
+    page,
+    limit,
+    name,
+    max
+  )) as PokemonListResponse;
   if (!list) {
     throw new Response("Failed to load Pokemon list.", { status: 500 });
   }

@@ -1,5 +1,6 @@
 export interface PokemonListResponse {
   count: number;
+  countSearch?: number;
   next: string | null;
   previous: string | null;
   results: {
