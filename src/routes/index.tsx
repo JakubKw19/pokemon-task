@@ -44,8 +44,7 @@ export default function PokemonList() {
       navigate(`/?page=1&limit=${currentLimit}`);
     }
     navigate(
-      `/?page=1&limit=${currentLimit}&name=${encodeURIComponent(search)}&max=${
-        pokemonList.count
+      `/?page=1&limit=${currentLimit}&name=${encodeURIComponent(search)}&max=${pokemonList.count
       }`
     );
   };
@@ -70,7 +69,7 @@ export default function PokemonList() {
           </Button>
         </div>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-4">
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))] gap-4">
         {pokemonList.results.map((pokemon) => (
           <Card
             key={pokemon.name}
